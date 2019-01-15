@@ -135,18 +135,6 @@ This function should only modify configuration layer settings."
 This function is called at the very beginning of Spacemacs startup,
 before layer configuration.
 It should only modify the values of Spacemacs settings."
-  ;(setq configuration-layer--elpa-archives
-  ;      '(("melpa"    . "melpa.org/packages/")
-  ;        ("org"      . "orgmode.org/elpa/")
-  ;        ("gnu"      . "elpa.gnu.org/packages/")))
-  ;(setq configuration-layer--elpa-archives
-  ;      '(("melpa" . ,(expand-file-name "~/.emacs.d/private/local/elpa-mirror/melpa"))
-  ;        ("org"   . ,(expand-file-name "~/.emacs.d/private/local/elpa-mirror/org/"))
-  ;        ("gnu"   . ,(expand-file-name "~/.emacs.d/private/local/elpa-mirror/gnu/"))))
-  (setq configuration-layer--elpa-archives
-        '(("melpa" . "/home/hh/.emacs.d/private/local/elpa-mirror/melpa")
-          ("org"   . "/home/hh/.emacs.d/private/local/elpa-mirror/org/")
-          ("gnu"   . "/home/hh/.emacs.d/private/local/elpa-mirror/gnu/")))
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -517,6 +505,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq quelpa-checkout-melpa-p nil)
   ;; This isn't in elpa, and I've yet to get private/local to work
   ;; git clone https://github.com/ahendriksen/ob-tmux ~/.emacs.d/private/local/ob-tmux.el
   ;; git clone https://github.com/ii/ob-tmate ~/.emacs.d/private/local/ob-tmux.el
