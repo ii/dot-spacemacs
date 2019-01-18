@@ -112,6 +112,7 @@ This function should only modify configuration layer settings."
                                       org-tree-slide
                                       slime
                                       ob-tmux
+                                      xclip
                                       ;; osc52e
                                       )
 
