@@ -33,9 +33,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(nginx
-     lua
-     lua
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -77,11 +75,14 @@ This function should only modify configuration layer settings."
          go-use-gometalinter t)
      html
      javascript
+     lua
+     nginx
      pandoc
      python
      ruby
      shell-scripts
      terraform
+     typography
      themes-megapack
      yaml
      ;; #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
@@ -420,7 +421,8 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   ;; dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
