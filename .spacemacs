@@ -221,7 +221,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner 11 ;; 'official
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -544,6 +544,25 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; (advice-add 'split-window-right :filter-args
   ;;             'split-window-right-ignore)
+  ;; Needs to be early so we can call emacs -nw -f togetherly-quick-start
+  (load "~/.emacs.d/elpa/27.0/develop/togetherly-20170426.616/togetherly.el")
+  (require 'togetherly)
+  (defun togetherly-client-quick-start ()
+    (let* ((host "127.0.0.1")
+           (port "10000")
+           (name (setq togetherly--client-name (togetherly--read-display-name))))
+      (setq togetherly--client-process
+            (make-network-process
+             :name "togetherly" :host host :service port :noquery t
+             :buffer (get-buffer-create "*Togetherly*")
+             :sentinel 'togetherly--client-sentinel-function
+             :filter 'togetherly--client-filter-function))
+      (switch-to-buffer "*Togetherly*")
+      (setq togetherly--client-timer-object
+            (run-with-timer nil togetherly-cursor-sync-rate
+                            'togetherly--client-report-cursor-position))
+      (add-hook 'kill-buffer-query-functions 'togetherly--client-kill-buffer-query)
+      (togetherly--client-send `(login . ,name))))
   )
 
 (defun dotspacemacs/user-load ()
