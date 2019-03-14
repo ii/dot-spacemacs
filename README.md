@@ -6,21 +6,45 @@ The goal is to help future users of this workflow to get setup with the least am
 > Spacemacs is a new way to experience Emacs -- a sophisticated and polished set-up focused on ergonomics, mnemonics and consistency.
 
 
-## Install Emacs Snapshot PPA
+## Emacs
 
-This installs Emacs-snapshot on Ubuntu Bionic 18.04, though any process that gives us Emacs 27.0.50 is probably fine.
+Due to some issues with the drifting version of [emacs-snapshot](https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa) there is an ii [pinned stable version](https://github.com/ii/emacs/tree/stable) that we will use.
 
-**Note:** Be sure that no other .elc files are loaded
+### Get ii stable version
+
+Using `git` download the current *stable* version of Emacs
 
 ```
-CODENAME=$(lsb_release -c -s)
-sudo apt-key adv \
-  --recv-keys 0D7BAE435ADBC6C3E4918A74062D648FD62FCE72 \
-  && sudo add-apt-repository \
-  "deb http://ppa.launchpad.net/ubuntu-elisp/ppa/ubuntu $CODENAME main" \
-  && sudo apt-get install -y \
-  emacs-snapshot
+cd /tmp/emacs
+git clone -b stable https://github.com/ii/emacs
 ```
+
+### Build & Install Emacs
+
+**Step 1:** Install the following packages so that we can build Emacs
+
+```
+sudo apt install autoconf make gcc texinfo libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff5-dev libgnutls28-dev libncurses5-dev
+```
+
+**Step 2:** Follow the commands below as Emacs is built and then installed
+
+```
+cd /tmp/emacs
+./autogen.sh
+./configure
+make
+sudo make install
+```
+
+### Check Emacs version
+
+The current version should be `27.0.50`
+
+```
+emacs --version
+```
+
 
 ## ELPA Mirror
 
@@ -78,7 +102,7 @@ git clone --depth 1 -b stable --recurse-submodules \
      https://github.com/ii/spacemacs.git \
      ~/.emacs.d \
    && ln -sf ~/.emacs.d/private/local/dot-spacemacs/.spacemacs ~/.spacemacs \
-   && emacs --batch -l ~/.emacs.d/init.el]
+   && emacs --batch -l ~/.emacs.d/init.el
 ```
 
 ## References
