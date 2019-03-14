@@ -15,7 +15,7 @@ Due to some issues with the drifting version of [emacs-snapshot](https://launchp
 Using `git` download the current *stable* version of Emacs
 
 ```
-cd /tmp/emacs
+cd /tmp
 git clone -b stable https://github.com/ii/emacs
 ```
 
