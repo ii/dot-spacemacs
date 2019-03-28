@@ -16,7 +16,7 @@ Using `git` download the current *stable* version of Emacs
 
 ```
 cd /tmp
-git clone -b stable https://github.com/ii/emacs
+git clone -b stable --depth=1 https://github.com/ii/emacs
 ```
 
 ### Build & Install Emacs
