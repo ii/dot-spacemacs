@@ -33,7 +33,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(typescript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     version-control
      docker
      (go :variables
          go-tab-width 4
@@ -101,7 +101,6 @@ This function should only modify configuration layer settings."
                                       s
                                       go-dlv
                                       ob-go
-                                      ob-async
                                       ;; ob-tmux
                                       graphql
                                       ghub
@@ -595,6 +594,8 @@ before packages are loaded."
           | tr --delete '\n'"))
     (message (getenv "SSH_AUTH_SOCK"))
     )
+  (add-to-list 'load-path "~/.emacs.d/private/local/ob-async/")
+  (load "~/.emacs.d/private/local/ob-async/ob-async.el")
   (add-to-list 'load-path "~/.emacs.d/private/local/forge/lisp/")
   (load "~/.emacs.d/private/local/forge/lisp/forge.el")
   (add-to-list 'forge-alist '("gitlab.ii.coop" "gitlab.ii.coop/api/v4" "gitlab.ii.coop" forge-gitlab-repository))
