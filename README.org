@@ -31,7 +31,7 @@ As the current user has already been created we can't use the setup in the `/etc
 The configuration below will use the user's home folder.
 
 #+BEGIN_SRC shell
-git clone --depth 1 -b 26-2-stable --recurse-submodules \
+git clone --depth 1 -b 26.2-stable --recurse-submodules \
      https://github.com/ii/spacemacs.git \
      ~/.emacs.d \
    && ln -sf ~/.emacs.d/private/local/dot-spacemacs/.spacemacs ~/.spacemacs \
