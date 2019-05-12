@@ -552,7 +552,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; (advice-add 'split-window-right :filter-args
   ;;             'split-window-right-ignore)
   ;; Needs to be early so we can call emacs -nw -f togetherly-quick-start
-  (load "~/.emacs.d/elpa/27.0/develop/togetherly-20170426.616/togetherly.el")
+  (load "~/.emacs.d/elpa/26.2/develop/togetherly-20170426.616/togetherly.el")
   (require 'togetherly)
   (defun togetherly-client-quick-start ()
     (let* ((host "127.0.0.1")
@@ -604,8 +604,12 @@ before packages are loaded."
   ;; (add-to-list 'load-path "~/.emacs.d/private/local/emacs-zmq/")
   ;; (add-to-list 'load-path "~/.emacs.d/private/local/emacs-jupyter/")
   ;; (load "~/.emacs.d/private/local/emacs-jupyter/jupyter.el")
-  (add-to-list 'load-path "~/.emacs.d/private/local/ob-async/")
-  (load "~/.emacs.d/private/local/ob-async/ob-async.el")
+
+  ;; Loading /home/hippie/.emacs.d/private/local/ob-async/ob-async.el (source)...
+  ;; (Spacemacs) Error in dotspacemacs/user-config: Symbol’s function definition is void: org-combine-plists
+  ;; (add-to-list 'load-path "~/.emacs.d/private/local/ob-async/")
+  ;; (load "~/.emacs.d/private/local/ob-async/ob-async.el")
+  ;; for updating tickets and PRs from emacs
   (add-to-list 'load-path "~/.emacs.d/private/local/forge/lisp/")
   (load "~/.emacs.d/private/local/forge/lisp/forge.el")
   (add-to-list 'forge-alist '("gitlab.ii.coop" "gitlab.ii.coop/api/v4" "gitlab.ii.coop" forge-gitlab-repository))
