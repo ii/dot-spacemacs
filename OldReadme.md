@@ -8,20 +8,21 @@ The goal is to help future users of this workflow to get setup with the least am
 
 ## Emacs
 
-Due to some issues with the drifting version of [emacs-snapshot](https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa) there is an ii [pinned stable version](https://github.com/ii/emacs/tree/stable) that we will use.
+Our config focuses on the stable 26.2 release of emacs, install as appropriate for your OS.
 
-### Get ii stable version
+### Get 26.2 stable version
 
 Using `git` download the current *stable* version of Emacs
 
 ```
 cd /tmp
-git clone -b stable --depth=1 https://github.com/ii/emacs
+wget https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.gz
+tar xvfz emacs-26.2.tar.gz
 ```
 
 ### Build & Install Emacs
 
-**Step 1:** Install the following packages so that we can build Emacs
+**Step 1:** Install the following packages so that we can build Emacs (on Ubuntu/Debian)
 
 ```
 sudo apt install autoconf make gcc texinfo libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff5-dev libgnutls28-dev libncurses5-dev
@@ -30,7 +31,7 @@ sudo apt install autoconf make gcc texinfo libgtk-3-dev libxpm-dev libjpeg-dev l
 **Step 2:** Follow the commands below as Emacs is built and then installed
 
 ```
-cd /tmp/emacs
+cd /tmp/emacs-26.2/
 ./autogen.sh
 ./configure
 make
@@ -39,7 +40,7 @@ sudo make install
 
 ### Check Emacs version
 
-The current version should be `27.0.50`
+The current version should be `26.2`
 
 ```
 emacs --version
@@ -52,7 +53,7 @@ To save time we will setup a local mirror for all the LISP files that we need as
 Depending on your machine and internet connection it may take some time to download, configure and compile.
 
 ```
-sudo git clone --depth 1 -b stable \
+sudo git clone --depth 1 -b 26.2-stable \
     https://github.com/ii/elpa-mirror \
     /usr/local/elpa-mirror
 ```
@@ -72,7 +73,7 @@ To save time setting up Spacemacs for a number of users of the same computer we 
 Download and link spacemacs inside the `/etc/skel` folder.
 
 ```
-git clone --depth 1 -b stable --recurse-submodules \
+git clone --depth 1 -b 26.2-stable --recurse-submodules \
     https://github.com/ii/spacemacs.git \
     /etc/skel/.emacs.d \
   && ln -s .emacs.d/private/local/dot-spacemacs/.spacemacs /etc/skel/.spacemacs
@@ -98,7 +99,7 @@ As the current user has already been created we can't use the setup in the `/etc
 The configuration below will use the user's home folder.
 
 ```
-git clone --depth 1 -b stable --recurse-submodules \
+git clone --depth 1 -b 26-2-stable --recurse-submodules \
      https://github.com/ii/spacemacs.git \
      ~/.emacs.d \
    && ln -sf ~/.emacs.d/private/local/dot-spacemacs/.spacemacs ~/.spacemacs \
