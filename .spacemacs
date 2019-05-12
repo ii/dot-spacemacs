@@ -83,6 +83,7 @@ This function should only modify configuration layer settings."
      ruby
      shell-scripts
      terraform
+     treemacs
      typography
      themes-megapack
      yaml
@@ -610,6 +611,15 @@ before packages are loaded."
   ;; (add-to-list 'load-path "~/.emacs.d/private/local/ob-async/")
   ;; (load "~/.emacs.d/private/local/ob-async/ob-async.el")
   ;; for updating tickets and PRs from emacs
+  ;;;;;; We load these pretty late, and we could probably find a way to
+  ;;;;;; have the loading cached
+  ;; Loading /home/hippie/.spacemacs...done
+  ;; Loading /home/hippie/.emacs.d/private/local/ob-tmate.el/ob-tmate.el (source)...done
+  ;; Loading /home/hippie/.emacs.d/elpa/26.2/develop/togetherly-20170426.616/togetherly.el (source)...done
+  ;; Spacemacs is ready.
+  ;; Loading /home/hippie/.emacs.d/private/local/forge/lisp/forge.el (source)...done
+  ;; Loading /home/hippie/.emacs.d/.cache/recentf...done
+
   (add-to-list 'load-path "~/.emacs.d/private/local/forge/lisp/")
   (load "~/.emacs.d/private/local/forge/lisp/forge.el")
   (add-to-list 'forge-alist '("gitlab.ii.coop" "gitlab.ii.coop/api/v4" "gitlab.ii.coop" forge-gitlab-repository))
