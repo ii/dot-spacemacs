@@ -608,8 +608,8 @@ before packages are loaded."
 
   ;; Loading /home/hippie/.emacs.d/private/local/ob-async/ob-async.el (source)...
   ;; (Spacemacs) Error in dotspacemacs/user-config: Symbol’s function definition is void: org-combine-plists
-  ;; (add-to-list 'load-path "~/.emacs.d/private/local/ob-async/")
-  ;; (load "~/.emacs.d/private/local/ob-async/ob-async.el")
+  (add-to-list 'load-path "~/.emacs.d/private/local/ob-async/")
+  (load "~/.emacs.d/private/local/ob-async/ob-async.el")
   ;; for updating tickets and PRs from emacs
   ;;;;;; We load these pretty late, and we could probably find a way to
   ;;;;;; have the loading cached
